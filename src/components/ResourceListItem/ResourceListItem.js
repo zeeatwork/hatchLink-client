@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { NiceDate, Hyph } from '../Utils/Utils'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+//import { NiceDate, Hyph } from '../Utils/Utils'
 import StyleIcon from '../StyleIcon/StyleIcon'
 import './ResourceListItem.css'
 
@@ -19,7 +19,7 @@ export default class ResourceListItem extends Component {
         <footer className='ResourceListItem__footer'>
           <ResourceStyle resource={resource} />
           {resource.author.id && <>
-            <Hyph />
+          
             <ResourceReviewAuthor resource={resource} />
           </>}
           <ResourceReviewCount resource={resource} />
@@ -42,9 +42,9 @@ function ResourceStyle({ resource }) {
 function ResourceDate({ resource }) {
   return (
     <span className='ResourceListItem__date'>
-      <NiceDate
+     
         date={resource.date_created}
-      />
+      
     </span>
   )
 }
@@ -62,7 +62,7 @@ function ResourceReviewCount({ resource,review }) {
     <span
       className='ResourceListItem__comment-count fa-layers fa-fw'
     >
-      <FontAwesomeIcon size='lg' icon='comment' />
+      {/* <FontAwesomeIcon size='lg' icon='comment' /> */}
       <span
         className='fa-layers-text fa-inverse'>
         {resource.number_of_reviews}

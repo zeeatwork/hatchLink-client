@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 //import { get my icon list } from '@fortawesome/free-solid-svg-icons'
 import * as serviceWorker from './serviceWorker'
@@ -14,9 +14,13 @@ import './index.css'
 // )
 
 ReactDOM.render(
-  <BrowserRouter>
+  <Router>
+    <ResourceListProvider>
+      <ResourceProvider>
         <App />
-  </BrowserRouter>,
+      </ResourceProvider>
+    </ResourceListProvider>
+  </Router>,
   document.getElementById('root')
 )
 

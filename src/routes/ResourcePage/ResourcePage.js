@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ResourceContext, { nullResource } from '../../contexts/ResourceContext'
 import ResourceApiService from '../../services/resource-api-service'
-import { NiceDate, Hyph, Section } from '../../components/Utils/Utils'
+//import { NiceDate, Hyph, Section } from '../../components/Utils/Utils'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 import './ResourcePage.css'
 
@@ -33,7 +33,7 @@ export default class ResourcePage extends Component {
     return <>
       <h2>{resource.name}</h2>
       <p>
-        <NiceDate date={resource.date_created} />
+        {resource.date_created}
       </p>
       <ResourceContent resource={resource} />
       <ResourceReviews reviews={reviews} />
@@ -54,9 +54,9 @@ export default class ResourcePage extends Component {
       content = this.renderResource()
     }
     return (
-      <Section className='ResourcePage'>
+      <section className='ResourcePage'>
         {content}
-      </Section>
+      </section>
     )
   }
 }

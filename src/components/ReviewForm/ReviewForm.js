@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ResourceContext from '../../contexts/ResourceContext'
 import ResourceApiService from '../../services/resource-api-service'
 import { Button, Textarea } from '../Utils/Utils'
-import './ReviewForm.css'
 
 export default class ReviewForm extends Component {
   static contextType = ResourceContext
