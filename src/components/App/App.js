@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Card from './card/Card';
-import Header from '../header/Header.js';
+import Card from '../card/Card';
+import Header from '../../header/Header.js';
 
 class App extends Component {
   state = {
