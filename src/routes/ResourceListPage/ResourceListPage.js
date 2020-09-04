@@ -8,7 +8,7 @@ export default class ResourceListPage extends Component {
   static contextType = ResourceListContext
 
   componentDidMount() {
-    this.context.clearError()
+    // this.context.clearError()
     ResourceApiService.getResources()
       .then(this.context.setResourceList)
       .catch(this.context.setError)
