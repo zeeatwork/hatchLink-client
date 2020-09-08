@@ -1,0 +1,12 @@
+.ReviewForm {
+  background: white;
+  width: 300px;
+  border-radius: 6px;
+  margin: 0 auto 0 auto;
+  padding: 0px 40px 20px 40px;
+  border: #2980b9 4px solid;
+}
+p {
+  font-size: 16px;
+  text-decoration: none;
+}

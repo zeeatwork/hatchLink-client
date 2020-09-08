@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 const ResourceListContext = React.createContext({
-  ResourceList: [],
+  resourceList: [],
   error: null,
   setError: () => {},
   clearError: () => {},
   setResourceList: () => {},
-})
-export default ResourceListContext
+});
+export default ResourceListContext;
 
 export class ResourceListProvider extends Component {
   state = {
@@ -15,18 +15,18 @@ export class ResourceListProvider extends Component {
     error: null,
   };
 
-  setResourceList = resourceList => {
-    this.setState({ resourceList })
-  }
+  setResourceList = (resourceList) => {
+    this.setState({ resourceList });
+  };
 
-  setError = error => {
-    console.error(error)
-    this.setState({ error })
-  }
+  setError = (error) => {
+    console.error(error);
+    this.setState({ error });
+  };
 
   clearError = () => {
-    this.setState({ error: null })
-  }
+    this.setState({ error: null });
+  };
 
   render() {
     const value = {
@@ -35,11 +35,11 @@ export class ResourceListProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       setResourceList: this.setResourceList,
-    }
+    };
     return (
       <ResourceListContext.Provider value={value}>
         {this.props.children}
       </ResourceListContext.Provider>
-    )
+    );
   }
 }

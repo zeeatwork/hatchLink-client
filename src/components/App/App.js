@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import Header from '../Header/Header.js';
-import config from '../../config.js';
-import PrivateRoute from '../Utils/PrivateRoute';
-import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
-import ResourceListPage from '../../routes/ResourceListPage/ResourceListPage';
-import ResourcePage from '../../routes/ResourcePage/ResourcePage';
-import LoginPage from '../../routes/LoginPage/LoginPage';
-import ResourceContext from '../../contexts/ResourceContext';
-import {Route, Switch} from 'react-router-dom';
-import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage';
-import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
-import './App.css';
-
+import React, { Component } from "react";
+import Header from "../Header/Header.js";
+import config from "../../config.js";
+import PrivateRoute from "../Utils/PrivateRoute";
+import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
+import ResourceListPage from "../../routes/ResourceListPage/ResourceListPage";
+import ResourcePage from "../../routes/ResourcePage/ResourcePage";
+import LandingPage from "../LandingPage/LandingPage.js";
+import LoginPage from "../../routes/LoginPage/LoginPage";
+import ResourceContext from "../../contexts/ResourceContext";
+import { Route, Switch } from "react-router-dom";
+import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
+import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
+import "./App.css";
 
 class App extends Component {
   state = {
-   hasError: false
+    hasError: false,
   };
 
   static getDerivedStateFromError(error) {
-    console.error(error)
-    return {hasError: true}
+    console.error(error);
+    return { hasError: true };
   }
   // setResources = resources => {
   //   this.setState({
@@ -40,7 +40,7 @@ class App extends Component {
 
   // componentDidMount() {
   //   fetch(config.API_ENDPOINT, {
-  //     method: 'GET', 
+  //     method: 'GET',
   //     headers: {
   //       'content-type': 'application/json',
   //       'Authorization': `Bearer: $config.API_KEY}`
@@ -64,39 +64,27 @@ class App extends Component {
     //   resources: this.state.resources,
     // }
 
-  return(
-<div className='App'>
-<header className='App__header'>
-  <Header />
-</header>
-<main className='App__main'>
-  {this.state.hasError && <p className='red'>There was an error! Oh no!</p>}
-  <Switch>
-    <Route
-      exact
-      path={'/'}
-      component={ResourceListPage}
-    />
-    <Route
-      path={'/login'}
-      component={LoginPage}
-    />
-    <Route
-      path={'/register'}
-      component={RegistrationPage}
-    />
-    <Route
-      path={'/resource/:resourceId'}
-      component={ResourcePage}
-    />
-    <Route
-      component={NotFoundPage}
-    />
-  </Switch>
-</main>
-</div>
-)
-}
+    return (
+      <div className="App">
+        <header className="App__header">
+          <Header />
+        </header>
+        <main className="App__main">
+          {this.state.hasError && (
+            <p className="red">There was an error! Oh no!</p>
+          )}
+          <Switch>
+            <Route exact path={"/"} component={LandingPage} />
+            <Route path={"/resources"} component={ResourceListPage} />
+            <Route path={"/login"} component={LoginPage} />
+            <Route path={"/register"} component={RegistrationPage} />
+            <Route path={"/resource/:resourceId"} component={ResourcePage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;
