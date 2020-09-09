@@ -1,0 +1,25 @@
+form {
+  background: white;
+  width: 300px;
+  border-radius: 6px;
+  margin: 0 auto 0 auto;
+  padding: 0px 40px 20px 40px;
+  border: #2980b9 4px solid;
+  box
+}
+ 
+label {
+    float: left;
+    width: 200px;
+    padding-right: 24px;
+}
+ 
+input {
+    float: left;
+    width: calc(100% - 200px);
+}
+ 
+button {
+    float: right;
+    width: calc(100% - 200px);
+}
