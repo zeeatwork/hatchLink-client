@@ -1,12 +1,10 @@
 import React from "react";
 import "./LandingPage.css";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
     <div>
-      <nav className="sticky">
-        <h1>Just my Icon</h1>
-      </nav>
       <div className="container">
         <h2>Hatchlink</h2>
         <p>Your questons answered about Hatchlink</p>

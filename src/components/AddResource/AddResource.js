@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ResourceContext from "../../contexts/ResourceContext";
 import ResourceApiService from "../../services/resource-api-service";
-import "./addResouce.css";
+import "./addResource.css";
 
-export default class AddResource extends Component {
+export default class AddResource extends React.Component {
   static contextType = ResourceContext;
   static defaultProps = {
     onRegistrationSuccess: () => {},
@@ -37,37 +38,40 @@ export default class AddResource extends Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="ResourceForm" onSubmit={this.handleSubmit}>
-        <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <label htmlfor="Name">Name:</label>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <h2>Add A Resource</h2>
+
+        <label htmlFor="name">Name:</label>
         <br />
         <input type="text" id="name" name="name" />
         <br />
-        <label htmlfor="url">Website:</label>
+        <label htmlFor="url">Website:</label>
         <br />
         <input type="url" id="url" name="url" />
-        <input />
-        <label htmlfor="price">Price:</label>
         <br />
-        <input type="number" id="price" name="price" />
-        <input />
-        <label htmlfor="subject">Subject:</label>
+        <label htmlFor="cost">Price:</label>
+        <br />
+        <input type="number" id="cost" name="cost" />
+        <br />
+        <label htmlFor="subject">Subject:</label>
         <select name="subject" id="subject">
           <option value="HTML">HTML</option>
           <option value="CSS">CSS</option>
           <option value="JavaScript">JavaScript</option>
           <option value="General">General Dev</option>
         </select>
-        <label htmlfor="format">Format:</label>
+        <label htmlFor="format">Format:</label>
         <select name="format" id="format">
           <option value="Book">Book</option>
           <option value="Stream">Stream</option>
           <option value="Audio">Audio</option>
           <option value="Self-Guided">Self-Guided</option>
+          <option value="Class">Class</option>
         </select>
-        <input type="submit" value="Submit">
-          Add
-        </input>
+        <button type="submit">Submit</button>
+        <div role="alert">
+          {error && <p className="red">{error.message}</p>}
+        </div>
       </form>
     );
   }

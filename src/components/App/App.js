@@ -4,14 +4,17 @@ import config from "../../config.js";
 import PrivateRoute from "../Utils/PrivateRoute";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import ResourceListPage from "../../routes/ResourceListPage/ResourceListPage";
-import ResourcePage from "../../routes/ResourcePage/ResourcePage";
+import ResourceDetails from "../../components/ResourceDetails/ResourceDetails";
 import LandingPage from "../LandingPage/LandingPage.js";
+import AddResource from "../AddResource/AddResource";
 import LoginPage from "../../routes/LoginPage/LoginPage";
 import ResourceContext from "../../contexts/ResourceContext";
 import { Route, Switch } from "react-router-dom";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import "./App.css";
+import ReviewForm from "../ReviewForm/ReviewForm.js";
+import UpdateResource from "../UpdateResource/UpdateResource";
 
 class App extends Component {
   state = {
@@ -77,8 +80,14 @@ class App extends Component {
             <Route exact path={"/"} component={LandingPage} />
             <Route path={"/resources"} component={ResourceListPage} />
             <Route path={"/login"} component={LoginPage} />
+            <Route path={"/add-resource"} component={AddResource} />
             <Route path={"/register"} component={RegistrationPage} />
-            <Route path={"/resource/:resourceId"} component={ResourcePage} />
+            <Route path={"/edit/:resourceID"} component={UpdateResource} />
+            <Route
+              path={"/resources/:resourceId"}
+              component={ResourceDetails}
+            />
+            <Route path={"/add-review"} component={ReviewForm} />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

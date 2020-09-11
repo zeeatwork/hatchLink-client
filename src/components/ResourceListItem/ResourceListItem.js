@@ -3,25 +3,43 @@ import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { NiceDate, Hyph } from '../Utils/Utils'
 import StyleIcon from "../StyleIcon/StyleIcon";
+import ResourceContext from "../../contexts/ResourceContext";
+import ResourceApiService from "../../services/resource-api-service";
 import "./ResourceListItem.css";
 
 export default class ResourceListItem extends Component {
+  static contextType = ResourceContext;
+
+  handleDelete = (ev) => {
+    ev.preventDefault();
+    const { resource } = this.context;
+    const { resourceId } = ev.target;
+    ResourceApiService.deleteResource(resource.id);
+    // .then(this.context.)
+    // })
+    // .catch(this.context.setError);
+  };
   render() {
     const { resource } = this.props;
     return (
-      <Link to={`/resource/${resource.id}`} className="ResourceListItem">
-        <header className="ResourceListItem__header">
-          <h2 className="ResourceListItem__heading">{resource.name}</h2>
-          <ResourceDate resource={resource} />
-        </header>
-        <footer className="ResourceListItem__footer">
-          {/* <ResourceStyle resource={resource} />
+      <div>
+        <Link to={`/resource/${resource.id}`} className="ResourceListItem">
+          <header className="ResourceListItem__header">
+            <h2 className="ResourceListItem__heading">{resource.name}</h2>
+            <ResourceDate resource={resource} />
+          </header>
+          <footer className="ResourceListItem__footer">
+            {/* <ResourceStyle resource={resource} />
           {resource.author.id && <> */}
-          {/* <ResourceReviewAuthor resource={resource} /> */}
+            {/* <ResourceReviewAuthor resource={resource} /> */}
 
-          <ResourceReviewCount resource={resource} />
-        </footer>
-      </Link>
+            <ResourceReviewCount resource={resource} />
+          </footer>
+
+          <button>Review Resource</button>
+          <Link to={`/edit/${resource.id}`}>Update Resource</Link>
+        </Link>
+      </div>
     );
   }
 }
@@ -36,7 +54,7 @@ export default class ResourceListItem extends Component {
 
 function ResourceDate({ resource }) {
   return (
-    <span className="ResourceListItem__date">date={resource.date_created}</span>
+    <span className="ResourceListItem__date">{resource.date_created}</span>
   );
 }
 

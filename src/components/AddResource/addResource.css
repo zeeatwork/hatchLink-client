@@ -1,25 +1,15 @@
 form {
-  background: white;
-  width: 300px;
+  font-size: 20px;
   border-radius: 6px;
-  margin: 0 auto 0 auto;
-  padding: 0px 40px 20px 40px;
-  border: #2980b9 4px solid;
-  box
+  border-style: solid;
+  background-color: aqua;
+  padding: 2%;
 }
- 
-label {
-    float: left;
-    width: 200px;
-    padding-right: 24px;
-}
- 
-input {
-    float: left;
-    width: calc(100% - 200px);
-}
- 
-button {
-    float: right;
-    width: calc(100% - 200px);
+
+select {
+  width: 75%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f1f1f1;
 }

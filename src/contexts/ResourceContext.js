@@ -1,23 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export const nullResource = {
-  name: {},
+  // name: {},
   subject: [],
-}
+};
 
 const ResourceContext = React.createContext({
   resource: nullResource,
   reviews: [],
   error: null,
   setError: () => {},
-  clearError: () => { },
+  clearError: () => {},
   setResource: () => {},
   clearResource: () => {},
+  addResource: () => {},
+  deleteResource: () => {},
+  updateResource: () => {},
   setReview: () => {},
   addReview: () => {},
-})
+});
 
-export default ResourceContext
+export default ResourceContext;
 
 export class ResourceProvider extends Component {
   state = {
@@ -25,34 +28,42 @@ export class ResourceProvider extends Component {
     error: null,
   };
 
-  setError = error => {
-    console.error(error)
-    this.setState({ error })
-  }
+  setError = (error) => {
+    console.error(error);
+    this.setState({ error });
+  };
+
+  //   updateResource = updateResource=> {
+  //    const newResource = this.state.resources.map(resource =>
+  //      (resource.id === updatedResource.id)
+  //        ? updatedResource
+  //        : art
+  //    )
+  //    this.setState({
+  //      resources: newResources
+  //    })
+  //  };
 
   clearError = () => {
-    this.setState({ error: null })
-  }
+    this.setState({ error: null });
+  };
 
-  setResource = resource => {
-    this.setState({ resource })
-  }
+  setResource = (resource) => {
+    this.setState({ resource });
+  };
 
-  setReviews = reviews => {
-    this.setState({ reviews })
-  }
+  setReviews = (reviews) => {
+    this.setState({ reviews });
+  };
 
   clearResource = () => {
-    this.setResource(nullResource)
-    this.setReviews([])
-  }
+    this.setResource(nullResource);
+    this.setReviews([]);
+  };
 
-  addReview = review => {
-    this.setReviews([
-      ...this.state.reviews,
-      review
-    ])
-  }
+  addReview = (review) => {
+    this.setReviews([...this.state.reviews, review]);
+  };
 
   render() {
     const value = {
@@ -65,11 +76,14 @@ export class ResourceProvider extends Component {
       setReviews: this.setReviews,
       clearResource: this.clearResource,
       addReview: this.addReview,
-    }
+      addResource: this.addResource,
+      updateResource: this.updateResource,
+      deleteResource: this.deleteResource,
+    };
     return (
       <ResourceContext.Provider value={value}>
         {this.props.children}
       </ResourceContext.Provider>
-    )
+    );
   }
 }
