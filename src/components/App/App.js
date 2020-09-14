@@ -4,7 +4,7 @@ import config from "../../config.js";
 import PrivateRoute from "../Utils/PrivateRoute";
 import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import ResourceListPage from "../../routes/ResourceListPage/ResourceListPage";
-import ResourceDetails from "../../components/ResourceDetails/ResourceDetails";
+import ResourceDetailsPage from "../../routes/ResourceDetailsPage/ResourceDetailsPage";
 import LandingPage from "../LandingPage/LandingPage.js";
 import AddResource from "../AddResource/AddResource";
 import LoginPage from "../../routes/LoginPage/LoginPage";
@@ -25,41 +25,41 @@ class App extends Component {
     console.error(error);
     return { hasError: true };
   }
-  // setResources = resources => {
-  //   this.setState({
-  //     resources,
-  //     error: null,
-  //   })
-  // }
+  setResources = (resources) => {
+    this.setState({
+      resources,
+      error: null,
+    });
+  };
 
-  // addResource = resourceId => {
-  //   const newResources = this.state.resources.filter(rs =>
-  //     rs.id !== resourceId
-  //     )
-  //     this.setState({
-  //       resources: newResources
-  //     })
-  // }
+  addResource = (resourceId) => {
+    const newResources = this.state.resources.filter(
+      (rs) => rs.id !== resourceId
+    );
+    this.setState({
+      resources: newResources,
+    });
+  };
 
   // componentDidMount() {
   //   fetch(config.API_ENDPOINT, {
-  //     method: 'GET',
+  //     method: "GET",
   //     headers: {
-  //       'content-type': 'application/json',
-  //       'Authorization': `Bearer: $config.API_KEY}`
-  //     }
+  //       "content-type": "application/json",
+  //       Authorization: `Bearer: $config.API_KEY}`,
+  //     },
   //   })
-  //   .then(res => {
-  //     if (!res.ok) {
-  //       return res.json().then(error => Promise.reject(error))
-  //     }
-  //     return res.json()
-  //   })
-  //   .then(this.setResources)
-  //   .catch(error => {
-  //     console.error(error)
-  //     this.setState({error})
-  //   })
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         return res.json().then((error) => Promise.reject(error));
+  //       }
+  //       return res.json();
+  //     })
+  //     .then(this.setResources)
+  //     .catch((error) => {
+  //       console.error(error);
+  //       this.setState({ error });
+  //     });
   // }
 
   render() {
@@ -70,7 +70,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App__header">
-          <Header />
+          <Route path="/" component={Header} />
         </header>
         <main className="App__main">
           {this.state.hasError && (
@@ -78,16 +78,25 @@ class App extends Component {
           )}
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <Route path={"/resources"} component={ResourceListPage} />
+            <Route exact path={"/resources"} component={ResourceListPage} />
             <Route path={"/login"} component={LoginPage} />
             <Route path={"/add-resource"} component={AddResource} />
             <Route path={"/register"} component={RegistrationPage} />
-            <Route path={"/edit/:resourceID"} component={UpdateResource} />
             <Route
-              path={"/resources/:resourceId"}
-              component={ResourceDetails}
+              exact
+              path={"/resources/:resourceId/edit"}
+              component={UpdateResource}
             />
-            <Route path={"/add-review"} component={ReviewForm} />
+            <Route
+              exact
+              path={"/resources/:resourceId"}
+              component={ResourceDetailsPage}
+            />
+            <Route
+              exact
+              path={"/resources/:resourceId/add-review"}
+              component={ReviewForm}
+            />
             <Route component={NotFoundPage} />
           </Switch>
         </main>

@@ -1,30 +1,44 @@
-.main-nav {
+.container1 {
+  height: 100vh;
   display: flex;
-  list-style: none;
-  margin: 0;
-  font-size: 0.7em;
+  align-items: center;
+  justify-content: center;
+  background-color: blueviolet;
 }
 
-.sticky {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  width: 100%;
-}
-.container {
+.container2 {
+  background-color: dimgrey;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.grey {
-  background-color: dimgrey;
-}
-
-.blue {
+.container3 {
   background-color: midnightblue;
   color: aliceblue;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container4 {
+  background-color: midnightblue;
+  color: aliceblue;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container5 {
+  background-color: midnightblue;
+  color: aliceblue;
+  height: 100vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {

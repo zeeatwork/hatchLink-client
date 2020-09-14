@@ -4,29 +4,20 @@ import { Link } from "react-router-dom";
 //import { NiceDate, Hyph } from '../Utils/Utils'
 import StyleIcon from "../StyleIcon/StyleIcon";
 import ResourceContext from "../../contexts/ResourceContext";
-import ResourceApiService from "../../services/resource-api-service";
+
 import "./ResourceDetails.css";
 
 export default class ResourceListItem extends Component {
   static contextType = ResourceContext;
 
-  handleDelete = (ev) => {
-    ev.preventDefault();
-    const { resource } = this.context;
-    const { resourceId } = ev.target;
-    ResourceApiService.deleteResource(resource.id);
-    // .then(this.context.)
-    // })
-    // .catch(this.context.setError);
-  };
   render() {
     const { resource } = this.props;
+
     return (
       <div>
-        <Link
-          to={`/resource/${resource.id}`}
-          className="ResourceListItem"
-        ></Link>
+        <Link to="/resources">&lt; Back to Resource List</Link>
+        <h2>{resource.name}</h2>
+
         <button>Delete Resource</button>
         {/* <Link to="/edit-resource">Edit Resource</Link> */}
       </div>

@@ -21,9 +21,10 @@ export default class ResourceListItem extends Component {
   };
   render() {
     const { resource } = this.props;
+
     return (
       <div>
-        <Link to={`/resource/${resource.id}`} className="ResourceListItem">
+        <Link to={`/resources/${resource.id}`} className="ResourceListItem">
           <header className="ResourceListItem__header">
             <h2 className="ResourceListItem__heading">{resource.name}</h2>
             <ResourceDate resource={resource} />

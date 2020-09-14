@@ -2,10 +2,16 @@
   height: 90px;
   display: flex;
   align-items: normal;
-  justify-content: space-around;
+  justify-content: space-between;
   padding-bottom: 15px;
   padding-top: 15px;
-  margin: 0;
+  margin: 15px;
+}
+.sticky {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
 }
 
 .Header__not-logged-in .Hyph {

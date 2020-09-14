@@ -6,7 +6,10 @@ import TokenService from "../../services/token-service";
 import "./header.css";
 
 export default class Header extends Component {
-  handleLogoutClick = () => {};
+  handleLogoutClick = () => {
+    TokenService.clearAuthToken();
+    this.props.history.push("/");
+  };
 
   renderLogoutLink() {
     return (
@@ -14,6 +17,10 @@ export default class Header extends Component {
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
+        <Hyph />
+        <Link to="/resources">Resources</Link>
+        <Hyph />
+        <Link to="/add-resource">Add Resource</Link>
       </div>
     );
   }
@@ -24,8 +31,6 @@ export default class Header extends Component {
         <Link to="/register">Register</Link>
         <Hyph />
         <Link to="/login">Log in</Link>
-        <Hyph />
-        <Link to="/add-resource">Add Resource</Link>
       </div>
     );
   }
@@ -35,7 +40,8 @@ export default class Header extends Component {
       <nav className="Header">
         <h1>
           <Link to="/">
-            <FontAwesomeIcon className="yellow" icon="earlybirds" /> HatchLink
+            {/*<FontAwesomeIcon className="yellow" icon="earlybirds" />*/}{" "}
+            HatchLink
           </Link>
         </h1>
         {TokenService.hasAuthToken()

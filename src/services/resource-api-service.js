@@ -52,7 +52,7 @@ const ResourceApiService = {
       subject: resourceStore.subject,
       format: resourceStore.format,
     };
-    console.log(data, "this is data");
+
     return fetch(`${config.API_ENDPOINT}/resources`, {
       method: "POST",
       headers: {

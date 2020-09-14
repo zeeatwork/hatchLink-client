@@ -9,20 +9,19 @@ export default class ResourceDetailsPage extends Component {
 
   componentDidMount() {
     this.context.clearError();
-    ResourceApiService.getResource()
-      .then(this.context.setResourceList)
+    ResourceApiService.getResource(this.props.match.params.resourceId)
+      .then(this.context.setResource)
       .catch(this.context.setError);
   }
 
   renderResources() {
-    const { resourceList = [] } = this.context;
-    return resourceList.map((resource) => (
-      <ResourceDetails key={resource.id} resource={resource} />
-    ));
+    const { resource = {} } = this.context;
+    return <ResourceDetails key={resource.id} resource={resource} />;
   }
 
   render() {
     const { error } = this.context;
+
     return (
       <Section>
         {error ? (
