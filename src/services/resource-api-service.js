@@ -35,6 +35,12 @@ const ResourceApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+  updateResource(resourceId) {
+    return fetch(`https://localhost:8000/api/resources/${resourceId}`, {
+      method: "PATCH",
+      body: JSON.stringify(this.state.inputValues),
+    });
+  },
   getReviewsForResources(resourceId) {
     return fetch(`${config.API_ENDPOINT}/resources/${resourceId}/reviews`, {
       headers: {
@@ -45,24 +51,13 @@ const ResourceApiService = {
     );
   },
   postResource(resourceId) {
-    let data = {
-      name: resourceStore.name,
-      url: resourceStore.url,
-      cost: resourceStore.cost,
-      subject: resourceStore.subject,
-      format: resourceStore.format,
-    };
-
     return fetch(`${config.API_ENDPOINT}/resources`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        resource_id: resourceId,
-        data,
-      }),
+      body: JSON.stringify(resourceId),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
@@ -74,12 +69,13 @@ const ResourceApiService = {
         "content-type": "application/json",
         authorization: `bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        resource_id: resourceId,
-      }),
-    }).then((res) =>
-      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
-    );
+    }).then((res) => {
+      if (res.statusCode !== 204) {
+        console.log("Delete failed.");
+      } else {
+        res.redirect(`${config.API_ENDPOINT}/resources/`);
+      }
+    });
   },
   // updateReview(resourceId){
   //   return fetch(`https://localhost:8000/api/articles/${this.props.match.params.articleId}`, {
