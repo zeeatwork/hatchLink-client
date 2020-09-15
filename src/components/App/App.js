@@ -8,15 +8,17 @@ import ResourceDetailsPage from "../../routes/ResourceDetailsPage/ResourceDetail
 import LandingPage from "../LandingPage/LandingPage.js";
 import AddResource from "../AddResource/AddResource";
 import LoginPage from "../../routes/LoginPage/LoginPage";
-import ResourceContext from "../../contexts/ResourceContext";
 import { Route, Switch } from "react-router-dom";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import "./App.css";
 import ReviewForm from "../ReviewForm/ReviewForm.js";
-import UpdateResource from "../UpdateResource/UpdateResource";
+import UpdateFormPage from "../../routes/UpdateFormPage/UpdateFormPage";
+import ResourceApiService from "../../services/resource-api-service";
+import ResourceListContext from "../../contexts/ResourceListContext";
 
 class App extends Component {
+  static contextType = ResourceListContext;
   state = {
     hasError: false,
   };
@@ -40,6 +42,13 @@ class App extends Component {
       resources: newResources,
     });
   };
+
+  componentDidMount() {
+    this.context.clearError();
+    ResourceApiService.getResources()
+      .then(this.context.setResourceList)
+      .catch(this.context.setError);
+  }
 
   // componentDidMount() {
   //   fetch(config.API_ENDPOINT, {
@@ -85,7 +94,7 @@ class App extends Component {
             <Route
               exact
               path={"/resources/:resourceId/edit"}
-              component={UpdateResource}
+              component={UpdateFormPage}
             />
             <Route
               exact

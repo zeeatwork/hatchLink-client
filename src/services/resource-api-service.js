@@ -99,25 +99,14 @@ const ResourceApiService = {
   //       <h2>Edit article</h2>
   //       <form onSubmit={this.handleSubmit}></form>
   // )},
-  postReview(resourceId) {
-    let info = {
-      comment: reviewStore.comment,
-      overall_rating: reviewStore.overall_rating,
-      communication_rating: reviewStore.communication_rating,
-      has_materials: reviewStore.has_materials,
-      has_quizzes: reviewStore.has_quizzes,
-      has_exercises: reviewStore.has_exercises,
-    };
+  postReview(review) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${TokenService.getAuthToken()}`,
+        Authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
-      body: JSON.stringify({
-        resource_id: resourceId,
-        info,
-      }),
+      body: JSON.stringify(review),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

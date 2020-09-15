@@ -1,33 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import ResourceApiService from "../../services/resource-api-service";
-import "./addResource.css";
 
-export default class AddResource extends React.Component {
+//import "./UpdateResource.css";
+
+export default class UpdateResourceForm extends React.Component {
   static defaultProps = {
     onRegistrationSuccess: () => {},
   };
 
   state = { error: null };
-
+  //can I set the default values to their current value?
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const { name, url, cost, format, subject } = ev.target;
+    const { name, id, url, cost, format } = ev.target;
     this.setState({ error: null });
-    ResourceApiService.postResource({
+    ResourceApiService.updateResource({
       name: name.value,
       url: url.value,
       cost: cost.value,
       format: format.value,
-      subject: subject.value,
+      id: id.value,
     })
       .then((resource) => {
         name.value = "";
         url.value = "";
         cost.value = "";
         format.value = "";
-        subject.value = "";
         this.props.onRegistrationSuccess();
       })
       .catch((res) => {
@@ -36,14 +35,11 @@ export default class AddResource extends React.Component {
   };
   render() {
     const { error } = this.state;
+    const { resource } = this.props;
     return (
       <form className="form" onSubmit={this.handleSubmit}>
-        <h2>Add A Resource</h2>
+        <h2>Choose the items to update for {resource.name}</h2>
 
-        <label htmlFor="name">Name:</label>
-        <br />
-        <input type="text" id="name" name="name" />
-        <br />
         <label htmlFor="url">Website:</label>
         <br />
         <input type="url" id="url" name="url" />
@@ -52,13 +48,6 @@ export default class AddResource extends React.Component {
         <br />
         <input type="number" id="cost" name="cost" />
         <br />
-        <label htmlFor="subject">Subject:</label>
-        <select name="subject" id="subject">
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="General">General Dev</option>
-        </select>
         <label htmlFor="format">Format:</label>
         <select name="format" id="format">
           <option value="Book">Book</option>

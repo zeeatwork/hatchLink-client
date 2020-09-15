@@ -1,0 +1,15 @@
+form {
+  font-size: 20px;
+  border-radius: 6px;
+  border-style: solid;
+  background-color: aqua;
+  padding: 2%;
+}
+
+select {
+  width: 75%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: #f1f1f1;
+}
