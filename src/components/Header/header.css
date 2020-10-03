@@ -7,6 +7,10 @@
   padding-top: 15px;
   margin: 15px;
 }
+
+.Header:visited {
+}
+
 .sticky {
   position: fixed;
   z-index: 1;
@@ -24,6 +28,7 @@
   }
   .Header h1 {
     font-size: 30pt;
+    color: wheat;
   }
 
   .Header__not-logged-in {

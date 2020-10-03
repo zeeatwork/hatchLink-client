@@ -4,9 +4,9 @@
   border-bottom: 1px solid #3f455038;
   font-size: smaller;
   display: block;
-  padding: 10px 10px 0;
+  padding: 10px 10px;
   text-align: left;
-  width: 100%;
+  width: 80%;
   text-decoration: none;
 }
 button {
@@ -23,13 +23,15 @@ button {
 
 .ResourceListItem,
 .ResourceListItem:visited {
-  color: #555;
+  color: #eee;
 }
 
 .ResourceListItem__header {
   align-items: baseline;
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
+  padding-left: 15px;
 }
 .ResourceListItem__heading {
   margin: 0;
