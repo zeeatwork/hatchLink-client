@@ -6,6 +6,7 @@
   margin: 0 auto;
   flex-direction: column;
   font-family: Helvetica, sans-serif;
+  color: white
 }
 
 .App__header {

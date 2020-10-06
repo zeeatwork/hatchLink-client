@@ -1,3 +1,7 @@
+User info for Demo: 
+user name: testuser
+password: 1234ABC!b
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
