@@ -11,20 +11,6 @@ SUMMARY: HatchLink is an app that allows self-taught developers to create an acc
 
 TECHNOLOGY USED: This app used JavaScript throughout.  React.JS was used as a client side framework.  Server-technology relies on Node.JS with Express.  Database implementation performed in PostgreSQL. Client side deployment was performed in Vercel whele server-side deployment (including the database) was performed in Heroku.
 
-API DOCUMENTATION: HatchLink is designed as a RESTful API.  It uses simple decriptive URLs, accepts standard request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
-
-Login authentification to the API is performed via JWT-Authentification. Username passwords are hashed for encryption.  Here are the HTTP RESPONSE CODES:
-
-200 - OK	Everything worked as expected.
-400 - Bad Request	The request was unacceptable, often due to missing a required parameter.
-404 - Not Found	The requested resource doesn't exist.
-500 - Server Errors	Something went wrong on HatchLink's end. (These are rare.)
-
-ERROR TYPES:
-authentication_error	Failure to properly authenticate yourself in the request.
-validation error: At login or signup endpoints- duplicate username, password too short or simple (must be more than 8 characters, use upper and lowercase letters, special characters and numbers).
-validation error: in forms--attempting to submit a form without required information
-
 ROUTES AND SERVICES
 ADDRESOURCEPAGE: Uses the resource API service to post a new resource to 'api/resources' endpoint.
 ADDREVIEWPAGE: Uses the resource API service to post a new review to 'api/review' endpoint.
@@ -32,8 +18,10 @@ LOGINPAGE: Uses the auth API service to authenticate user via 'api/auth' endpoin
 NOTFOUNDPAGE: General 404 message for incorrect user routes or broken links
 REGISTRATIONPAGE: Uses method to confirm that new registrant's name, username and password meet basic requirements set at 'api/user' endpoint.
 RESOURCEDETAILSPAGE: Uses the resource API service to request and receive a additional information about a listed resource to 'api/resources' endpoint.
-RESOURCELISTPAGE
-UPDATEFORMPAGE
+
+RESOURCELISTPAGE: Performs GET request to request all resources for display on homepage via 'api/resources' endpoint.
+
+UPDATEFORMPAGE: Performs PATCH of individual resource that needs updating using 'api/resources/resource_id' endpoint request
 
 
 METHODS & ENDPOINTS
@@ -57,6 +45,21 @@ POST -- retrieves username and hashed password from client-side login request, a
 
 api/users
 POST -- Adds new users from sign up form to hatchlink_user database
+
+API DOCUMENTATION: HatchLink is designed as a RESTful API.  It uses simple decriptive URLs, accepts standard request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
+
+Login authentification to the API is performed via JWT-Authentification. Username passwords are hashed for encryption.  Here are the HTTP RESPONSE CODES:
+
+200 - OK	Everything worked as expected.
+400 - Bad Request	The request was unacceptable, often due to missing a required parameter.
+404 - Not Found	The requested resource doesn't exist.
+500 - Server Errors	Something went wrong on HatchLink's end. (These are rare.)
+
+ERROR TYPES:
+authentication_error	Failure to properly authenticate yourself in the request.
+validation error: At login or signup endpoints- duplicate username, password too short or simple (must be more than 8 characters, use upper and lowercase letters, special characters and numbers).
+validation error: in forms--attempting to submit a form without required information
+
 
 
 
