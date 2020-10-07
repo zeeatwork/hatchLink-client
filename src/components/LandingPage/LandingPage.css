@@ -1,5 +1,8 @@
+.largefont {
+  font-size: 25px;
+}
 .container1 {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,7 +11,9 @@
 
 .container2 {
   background-color: dimgrey;
-  height: 100vh;
+  height: 70vh;
+  padding: 15px;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +22,7 @@
 .container3 {
   background-color: midnightblue;
   color: aliceblue;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +30,7 @@
 .container4 {
   background-color: midnightblue;
   color: aliceblue;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +39,7 @@
 .container5 {
   background-color: midnightblue;
   color: aliceblue;
-  height: 100vh;
+  height: 90vh;
   width: 30%;
   display: flex;
   align-items: center;
