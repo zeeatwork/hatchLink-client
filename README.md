@@ -79,12 +79,13 @@ RESOPONSE: 201 with request body
 URL: https://hatchlink-client-htzq76g67.vercel.app/
 
 SCREENSHOTS
-![Image of Landing Page](https://octodex.github.com/images/yaktocat.png)
-![Image of Header](https://octodex.github.com/images/yaktocat.png)
-![Image of Add Review Page](https://octodex.github.com/images/yaktocat.png)
-![Image of Add Resource Page](https://octodex.github.com/images/yaktocat.png)
-![Image of Main Page/Resource List](https://octodex.github.com/images/yaktocat.png)
-![Image of Single Resource](https://octodex.github.com/images/yaktocat.png)
+![Image 1 of Landing Page](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/landingPage2.png)
+![Image 2 of Landing Page](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/landingPage2.png)
+![Image of Header](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/Header.png)
+![Image of Add Review Page](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/resourceReview.png)
+![Image of Add Resource Page](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/AddResourceForm.png)
+![Image of Main Page/Resource List](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/main%20with%20resources.png)
+![Image of Single Resource](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/Resource%20Details.png)
 ![Image of Update Resource Form](https://octodex.github.com/images/yaktocat.png)
-![Image of Registration Page](https://octodex.github.com/images/yaktocat.png)
-![Image of Login Page](https://octodex.github.com/images/yaktocat.png)
+![Image of Registration Page](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/userRegistration.png)
+![Image of Login Page](https://github.com/zeeatwork/hatchLink-client/blob/master/Images/loginForm.png)
