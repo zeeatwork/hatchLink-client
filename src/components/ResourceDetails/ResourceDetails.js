@@ -24,7 +24,7 @@ export default class ResourceListItem extends Component {
     const { resource } = this.props;
 
     return (
-      <div>
+      <div className="bg">
         <Link to="/resources">&lt; Back to Resource List</Link>
         <h2>{resource.name}</h2>
         <h4>Subject: {resource.subject}</h4>

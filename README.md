@@ -77,3 +77,14 @@ REVIEW REQUEST: body{
 RESOPONSE: 201 with request body
 
 URL: https://hatchlink-client-htzq76g67.vercel.app/
+
+SCREENSHOTS
+![Image of Landing Page](https://octodex.github.com/images/yaktocat.png)
+![Image of Header](https://octodex.github.com/images/yaktocat.png)
+![Image of Add Review Page](https://octodex.github.com/images/yaktocat.png)
+![Image of Add Resource Page](https://octodex.github.com/images/yaktocat.png)
+![Image of Main Page/Resource List](https://octodex.github.com/images/yaktocat.png)
+![Image of Single Resource](https://octodex.github.com/images/yaktocat.png)
+![Image of Update Resource Form](https://octodex.github.com/images/yaktocat.png)
+![Image of Registration Page](https://octodex.github.com/images/yaktocat.png)
+![Image of Login Page](https://octodex.github.com/images/yaktocat.png)
