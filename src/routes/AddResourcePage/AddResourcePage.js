@@ -10,7 +10,7 @@ export default class AddResourcePage extends Component {
   componentDidMount() {
     this.context.clearError();
     ResourceApiService.postResource()
-      .then(this.context.addResource)
+      .then(this.context.getAllResources)
       .catch(this.context.setError);
   }
 

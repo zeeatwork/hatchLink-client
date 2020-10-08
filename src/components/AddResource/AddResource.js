@@ -29,6 +29,7 @@ export default class AddResource extends React.Component {
         format.value = "";
         subject.value = "";
         this.props.onRegistrationSuccess();
+        this.props.history.push("/resources");
       })
       .catch((res) => {
         this.setState({ error: res.error });

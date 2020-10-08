@@ -21,7 +21,7 @@ export default class addReview extends Component {
         {error ? (
           <p className="red">There was an error, try again</p>
         ) : (
-          this.renderResouces()
+          this.renderResources()
         )}
       </Section>
     );

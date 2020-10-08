@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { NiceDate, Hyph } from '../Utils/Utils'
 
-import ResourceApiService from "../../services/resource-api-service";
+//import ResourceApiService from "../../services/resource-api-service";
 import "./ResourceListItem.css";
 
 export default class ResourceListItem extends Component {
-  handleDelete = (ev) => {
-    ev.preventDefault();
-    ResourceApiService.deleteResource(this.props.resource.id);
-  };
+  // handleDelete = (ev) => {
+  //   ev.preventDefault();
+  //   ResourceApiService.deleteResource(this.props.resource.id);
+  // };
   render() {
     const { resource } = this.props;
 

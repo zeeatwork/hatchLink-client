@@ -14,6 +14,7 @@ export default class ResourceListItem extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     if (this.props.resource.id) {
       ResourceApiService.getReviewsForResources(
         this.props.resource.id
@@ -22,7 +23,7 @@ export default class ResourceListItem extends Component {
   }
   render() {
     const { resource } = this.props;
-
+    console.log(resource.resource, this.props.resource.id);
     return (
       <div className="bg">
         <Link to="/resources">&lt; Back to Resource List</Link>
@@ -42,9 +43,7 @@ export default class ResourceListItem extends Component {
           <button>
             <Link to={`/resources/${resource.id}/edit`}>Update Resource</Link>
           </button>
-          <button
-            onClick={() => ResourceApiService.deleteResource(resource.id)}
-          >
+          <button onClick={() => this.props.onDelete(this.props.resource.id)}>
             Delete Resource
           </button>
         </div>

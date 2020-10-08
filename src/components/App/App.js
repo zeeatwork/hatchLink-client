@@ -43,11 +43,9 @@ class App extends Component {
     });
   };
 
+  
   componentDidMount() {
-    this.context.clearError();
-    ResourceApiService.getResources()
-      .then(this.context.setResourceList)
-      .catch(this.context.setError);
+    this.context.getAllResources();
   }
 
   // componentDidMount() {
