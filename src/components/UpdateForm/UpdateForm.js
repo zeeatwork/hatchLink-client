@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import ResourceApiService from "../../services/resource-api-service";
 
 //import "./UpdateResource.css";
@@ -13,14 +13,14 @@ export default class UpdateResourceForm extends React.Component {
   //can I set the default values to their current value?
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const { name, id, url, cost, format } = ev.target;
+    const { name, url, cost, format } = ev.target;
     this.setState({ error: null });
     ResourceApiService.updateResource({
-      name: name.value,
+      resource_name: this.props.resource.name,
       url: url.value,
       cost: cost.value,
       format: format.value,
-      id: id.value,
+      id: this.props.resource.id,
     })
       .then((resource) => {
         name.value = "";
@@ -31,7 +31,8 @@ export default class UpdateResourceForm extends React.Component {
       })
       .catch((res) => {
         this.setState({ error: res.error });
-      });
+      })
+      .then(() => this.props.history.push("/resources"));
   };
   render() {
     const { error } = this.state;
@@ -42,11 +43,16 @@ export default class UpdateResourceForm extends React.Component {
 
         <label htmlFor="url">Website:</label>
         <br />
-        <input type="url" id="url" name="url" />
+        <input type="url" id="url" name="url" defaultValue={resource.url} />
         <br />
         <label htmlFor="cost">Price:</label>
         <br />
-        <input type="number" id="cost" name="cost" />
+        <input
+          type="number"
+          id="cost"
+          name="cost"
+          defaultValue={resource.cost}
+        />
         <br />
         <label htmlFor="format">Format:</label>
         <select name="format" id="format">

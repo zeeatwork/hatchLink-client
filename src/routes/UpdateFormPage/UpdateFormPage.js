@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-import ResourceApiService from "../../services/resource-api-service";
 import { Section } from "../../components/Utils/Utils";
 import UpdateForm from "../../components/UpdateForm/UpdateForm";
 import Context from "../../contexts/ResourceListContext";

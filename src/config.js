@@ -1,5 +1,5 @@
 export default {
-  API_ENDPOINT: "https://blooming-reef-68223.herokuapp.com/api",
+  API_ENDPOINT: "http://localhost:8000/api",
   TOKEN_KEY: "hatchlink-client-auth-token",
 };
 

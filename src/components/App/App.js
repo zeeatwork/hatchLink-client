@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import Header from "../Header/Header.js";
-import config from "../../config.js";
-import PrivateRoute from "../Utils/PrivateRoute";
-import PublicOnlyRoute from "../Utils/PublicOnlyRoute";
 import ResourceListPage from "../../routes/ResourceListPage/ResourceListPage";
 import ResourceDetailsPage from "../../routes/ResourceDetailsPage/ResourceDetailsPage";
 import LandingPage from "../LandingPage/LandingPage.js";
@@ -14,7 +11,6 @@ import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import "./App.css";
 import ReviewForm from "../ReviewForm/ReviewForm.js";
 import UpdateFormPage from "../../routes/UpdateFormPage/UpdateFormPage";
-import ResourceApiService from "../../services/resource-api-service";
 import ResourceListContext from "../../contexts/ResourceListContext";
 
 class App extends Component {
@@ -43,7 +39,6 @@ class App extends Component {
     });
   };
 
-  
   componentDidMount() {
     this.context.getAllResources();
   }

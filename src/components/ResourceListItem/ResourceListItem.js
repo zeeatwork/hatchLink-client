@@ -48,9 +48,9 @@ function ResourceDate({ resource }) {
   );
 }
 
-function ResourceReviewAuthor({ review }) {
-  return <span className="Review__author">{review.author.user_name}</span>;
-}
+// function ResourceReviewAuthor({ review }) {
+//   return <span className="Review__author">{review.author.user_name}</span>;
+// }
 
 function ResourceReviewCount({ resource, review }) {
   return (

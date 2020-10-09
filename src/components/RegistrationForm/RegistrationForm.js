@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import "./registrationForm.css";
 import { Button, Input, Required } from "../Utils/Utils";
 import AuthApiService from "../../services/auth-api-service";
 

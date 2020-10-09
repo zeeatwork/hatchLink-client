@@ -2,21 +2,21 @@ import TokenService from "../services/token-service";
 
 import config from "../config";
 
-let resourceStore = {
-  name: "",
-  url: "",
-  cost: 0,
-  format: "",
-  subject: "",
-};
-let reviewStore = {
-  comment: "",
-  overall_rating: 0,
-  communication_rating: 0,
-  has_materials: "",
-  has_quizzes: "",
-  has_exercises: "",
-};
+// let resourceStore = {
+//   name: "",
+//   url: "",
+//   cost: 0,
+//   format: "",
+//   subject: "",
+// };
+// let reviewStore = {
+//   comment: "",
+//   overall_rating: 0,
+//   communication_rating: 0,
+//   has_materials: "",
+//   has_quizzes: "",
+//   has_exercises: "",
+// };
 
 const ResourceApiService = {
   getResources() {
@@ -35,10 +35,13 @@ const ResourceApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
-  updateResource(resourceId) {
-    return fetch(`https://localhost:8000/api/resources/${resourceId}`, {
+  updateResource(resource) {
+    return fetch(`${config.API_ENDPOINT}/resources/${resource.id}`, {
       method: "PATCH",
-      body: JSON.stringify(this.state.inputValues),
+      body: JSON.stringify(resource),
+      headers: {
+        "content-type": "application/json",
+      },
     });
   },
   getReviewsForResources(resourceId) {

@@ -48,24 +48,24 @@ export default class ReviewForm extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
 
-    // const {
-    //   comment,
-    //   overall_rating,
-    //   communication_rating,
-    //   has_materials,
-    //   has_quizzes,
-    //   has_exercises,
-    // } = ev.target;
-    
+    const {
+      comment,
+      overall_rating,
+      communication_rating,
+      has_materials,
+      has_quizzes,
+      has_exercises,
+    } = ev.target;
+
     this.setState({ error: null });
     ResourceApiService.postReview({
       parent_id: this.props.match.params.resourceId,
-      comment: this.state.comment,
-      overall_rating: this.state.overall_rating,
-      communication_rating: this.state.communication_rating,
-      has_exercises: this.state.has_exercises,
-      has_materials: this.state.has_materials,
-      has_quizzes: this.state.has_quizzes,
+      comment: comment.value,
+      overall_rating: overall_rating.value,
+      communication_rating: communication_rating.value,
+      has_exercises: has_exercises.value,
+      has_materials: has_materials.value,
+      has_quizzes: has_quizzes.value,
     }).then((review) =>
       this.props.history.push(
         `/resources/${this.props.match.params.resourceId}`
@@ -83,7 +83,7 @@ export default class ReviewForm extends Component {
               type="radio"
               id="true"
               name="has_exercises"
-              value="true"
+              defaultValue="true"
               onChange={this.handleHasExercises}
             />
             <label htmlFor="true">True</label>
@@ -94,7 +94,7 @@ export default class ReviewForm extends Component {
               type="radio"
               id="false"
               name="has_exercises"
-              value="false"
+              defaultValue="false"
               onChange={this.handleHasExercises}
             />
             <label htmlFor="false">False</label>
@@ -106,7 +106,7 @@ export default class ReviewForm extends Component {
               type="radio"
               id="true"
               name="has_quizzes"
-              value="true"
+              defaultValue="true"
               onChange={this.handleHasQuizzes}
             />
             <label htmlFor="true">True</label>
@@ -117,7 +117,7 @@ export default class ReviewForm extends Component {
               type="radio"
               id="false"
               name="has_quizzes"
-              value="false"
+              defaultValue="false"
               onChange={this.handleHasQuizzes}
             />
             <label htmlFor="false">False</label>
@@ -129,7 +129,7 @@ export default class ReviewForm extends Component {
               type="radio"
               id="true"
               name="has_materials"
-              value="true"
+              defaultValue="true"
               onChange={this.handleHasMaterials}
             />
             <label htmlFor="true">True</label>
@@ -139,7 +139,7 @@ export default class ReviewForm extends Component {
               type="radio"
               id="false"
               name="has_materials"
-              value="false"
+              defaultValue="false"
               onChange={this.handleHasMaterials}
             />
             <label htmlFor="false">False</label>
@@ -150,7 +150,8 @@ export default class ReviewForm extends Component {
             type="range"
             min="1"
             max="10"
-            value="5"
+            step="1"
+            defaultValue="5"
             className="slider"
             id="overall_rating"
             name="overall_rating"
@@ -161,7 +162,7 @@ export default class ReviewForm extends Component {
             type="range"
             min="1"
             max="10"
-            value="5"
+            defaultValue="5"
             className="slider"
             id="communication_rating"
             name="communication_rating"

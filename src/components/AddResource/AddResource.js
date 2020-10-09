@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import ResourceApiService from "../../services/resource-api-service";
 import "./addResource.css";

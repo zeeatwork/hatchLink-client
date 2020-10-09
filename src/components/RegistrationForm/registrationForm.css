@@ -8,9 +8,8 @@ form {
   flex-direction: column;
   align-items: stretch;
 }
-
-input {
-  margin: 10px 0;
+h2 {
+  color: black;
 }
 
 select {
