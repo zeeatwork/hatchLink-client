@@ -1,5 +1,5 @@
 import React from "react";
-
+import Header from "../Header/Header"
 import ResourceApiService from "../../services/resource-api-service";
 import "./addResource.css";
 
@@ -37,41 +37,46 @@ export default class AddResource extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
-        <h2>Add A Resource</h2>
+      <div>
+        <header className="App__header">
+          <Header />
+        </header>
+        <form className="form" onSubmit={this.handleSubmit}>
+          <h2>Add A Resource</h2>
 
-        <label htmlFor="name">Name:</label>
-        <br />
-        <input type="text" id="name" name="name" />
-        <br />
-        <label htmlFor="url">Website:</label>
-        <br />
-        <input type="url" id="url" name="url" />
-        <br />
-        <label htmlFor="cost">Price:</label>
-        <br />
-        <input type="number" id="cost" name="cost" />
-        <br />
-        <label htmlFor="subject">Subject:</label>
-        <select name="subject" id="subject">
-          <option value="HTML">HTML</option>
-          <option value="CSS">CSS</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="General">General Dev</option>
-        </select>
-        <label htmlFor="format">Format:</label>
-        <select name="format" id="format">
-          <option value="Book">Book</option>
-          <option value="Stream">Stream</option>
-          <option value="Audio">Audio</option>
-          <option value="Self-Guided">Self-Guided</option>
-          <option value="Class">Class</option>
-        </select>
-        <button type="submit">Submit</button>
-        <div role="alert">
-          {error && <p className="red">{error.message}</p>}
-        </div>
-      </form>
+          <label htmlFor="name">Name:</label>
+          <br />
+          <input type="text" id="name" name="name" />
+          <br />
+          <label htmlFor="url">Website:</label>
+          <br />
+          <input type="url" id="url" name="url" />
+          <br />
+          <label htmlFor="cost">Price:</label>
+          <br />
+          <input type="number" id="cost" name="cost" />
+          <br />
+          <label htmlFor="subject">Subject:</label>
+          <select name="subject" id="subject">
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="General">General Dev</option>
+          </select>
+          <label htmlFor="format">Format:</label>
+          <select name="format" id="format">
+            <option value="Book">Book</option>
+            <option value="Stream">Stream</option>
+            <option value="Audio">Audio</option>
+            <option value="Self-Guided">Self-Guided</option>
+            <option value="Class">Class</option>
+          </select>
+          <button type="submit">Submit</button>
+          <div role="alert">
+            {error && <p className="red">{error.message}</p>}
+          </div>
+        </form>
+      </div>
     );
   }
 }
