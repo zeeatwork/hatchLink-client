@@ -29,7 +29,7 @@ const ResourceApiService = {
   getResource(resourceId) {
     return fetch(`${config.API_ENDPOINT}/resources/${resourceId}`, {
       headers: {
-        authorization: `bearer ${TokenService.getAuthToken()}`,
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -47,7 +47,7 @@ const ResourceApiService = {
   getReviewsForResources(resourceId) {
     return fetch(`${config.API_ENDPOINT}/resources/${resourceId}/reviews`, {
       headers: {
-        authorization: `bearer ${TokenService.getAuthToken()}`,
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
@@ -58,7 +58,7 @@ const ResourceApiService = {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${TokenService.getAuthToken()}`,
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify(resourceId),
     }).then((res) =>
@@ -70,7 +70,7 @@ const ResourceApiService = {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
-        authorization: `bearer ${TokenService.getAuthToken()}`,
+        authorization: `Bearer ${TokenService.getAuthToken()}`,
       },
     }).then((res) => {
       if (res.statusCode !== 204) {
