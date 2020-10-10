@@ -32,7 +32,7 @@ export default class UpdateResourceForm extends React.Component {
       .catch((res) => {
         this.setState({ error: res.error });
       })
-      .then((resource) => this.props.history.push("/resources"));
+      // .then((resource) => this.props.history.push("/resources"));
   };
   render() {
     const { error } = this.state;
