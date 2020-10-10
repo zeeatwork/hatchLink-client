@@ -3,7 +3,7 @@ import { Section } from "../../components/Utils/Utils";
 import UpdateForm from "../../components/UpdateForm/UpdateForm";
 import Context from "../../contexts/ResourceListContext";
 
-export default class UpdateResourcePage extends Component {
+export default class UpdateFormPage extends Component {
   static contextType = Context;
   /*componentDidMount() {
     this.context.clearError();
@@ -13,6 +13,8 @@ export default class UpdateResourcePage extends Component {
   }*/
 
   render() {
+    console.log("test wprds");
+    console.log(this.props);
     const { error } = this.context;
     return (
       <Section list className="AddResourcePage">

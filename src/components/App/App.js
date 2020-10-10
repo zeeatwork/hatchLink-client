@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header/Header.js";
 import ResourceListPage from "../../routes/ResourceListPage/ResourceListPage";
 import ResourceDetailsPage from "../../routes/ResourceDetailsPage/ResourceDetailsPage";
 import LandingPage from "../LandingPage/LandingPage.js";
@@ -71,9 +70,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App__header">
-          <Route path="/" component={Header} />
-        </header>
         <main className="App__main">
           {this.state.hasError && (
             <p className="red">There was an error! Oh no!</p>

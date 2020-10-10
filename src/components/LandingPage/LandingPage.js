@@ -1,16 +1,23 @@
 import React from "react";
+import Header from "../Header/Header";
 import "./LandingPage.css";
 
 export default function LandingPage() {
   return (
     <div>
+      <header className="App__header">
+        <Header />
+      </header>
       <div className="container1">
         <h3 className="container5">Why Use Hatchlink?</h3>
-        <p>Find the resources you need to leave the tutorial nest. </p>
-        <p>
-          Rated tools that help you leave the nest and fly toward your own
-          projects.
-        </p>
+        <ul>
+          <li>Find the resources you need to leave the tutorial nest.</li>
+          <li>
+            Rated tools that help you leave the nest and fly toward your own
+            projects.
+          </li>
+        </ul>
+  
       </div>
       <div className="container2">
         <h3>Who Uses HatchLink?</h3>

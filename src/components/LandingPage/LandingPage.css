@@ -1,9 +1,14 @@
 .largefont {
   font-size: 25px;
 }
+li {
+  margin-bottom: 20px;
+}
 .container1 {
   height: 90vh;
   display: flex;
+  padding-right: 5px;
+  padding-left: 5px;
   align-items: center;
   justify-content: center;
   background-color: blueviolet;
@@ -12,6 +17,8 @@
 .container2 {
   background-color: dimgrey;
   height: 70vh;
+  padding-right: 15px;
+  padding-left: 10px;
   padding: 15px;
   text-align: center;
   display: flex;
@@ -39,6 +46,8 @@
 .container5 {
   background-color: midnightblue;
   color: aliceblue;
+  padding-right: 15px;
+  padding-left: 10px;
   height: 90vh;
   width: 30%;
   display: flex;
