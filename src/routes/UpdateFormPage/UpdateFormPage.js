@@ -13,8 +13,7 @@ export default class UpdateFormPage extends Component {
   }*/
 
   render() {
-    console.log("test wprds");
-    console.log(this.props);
+  
     const { error } = this.context;
     return (
       <Section list className="AddResourcePage">

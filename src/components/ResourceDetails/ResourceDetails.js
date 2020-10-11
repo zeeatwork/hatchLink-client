@@ -11,7 +11,6 @@ export default class ResourceListItem extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props, "this.props in componentDidMount");
     if (this.props.resource.id) {
       ResourceApiService.getReviewsForResources(
         this.props.resource.id
@@ -20,7 +19,6 @@ export default class ResourceListItem extends Component {
   }
   render() {
     const { resource } = this.props;
-    console.log(this.props.resource.id, "this.props.resource.id in render");
     return (
       <div className="bg">
         <Link to="/resources">&lt; Back to Resource List</Link>
