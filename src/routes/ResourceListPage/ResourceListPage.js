@@ -13,11 +13,14 @@ export default class ResourceListPage extends Component {
     ));
   }
 
+  componentDidMount = () => {
+    this.context.getAllResources();
+  };
+
   render() {
     const { error } = this.context;
     return (
       <div>
-    
         <Section list className="ResourceListPage">
           {error ? (
             <p className="red">There was an error, try again</p>

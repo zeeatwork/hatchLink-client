@@ -3,9 +3,9 @@ import ResourceApiService from "../../services/resource-api-service";
 import "./addResource.css";
 
 export default class AddResource extends React.Component {
-  static defaultProps = {
-    onRegistrationSuccess: () => {},
-  };
+  // static defaultProps = {
+  //   onRegistrationSuccess: () => {},
+  // };
 
   state = { error: null };
 
@@ -26,7 +26,6 @@ export default class AddResource extends React.Component {
         cost.value = "";
         format.value = "";
         subject.value = "";
-        this.props.onRegistrationSuccess();
         this.props.history.push("/resources");
       })
       .catch((res) => {
