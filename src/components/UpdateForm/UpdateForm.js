@@ -15,6 +15,7 @@ export default class UpdateResourceForm extends React.Component {
     ev.preventDefault();
     const { name, url, cost, format } = ev.target;
     this.setState({ error: null });
+    console.log("I AM HERE 0");
     ResourceApiService.updateResource({
       resource_name: this.props.resource.name,
       url: url.value,
@@ -23,16 +24,16 @@ export default class UpdateResourceForm extends React.Component {
       id: this.props.resource.id,
     })
       .then((resource) => {
-        name.value = "";
-        url.value = "";
-        cost.value = "";
-        format.value = "";
+        // name.value = "";
+        // url.value = "";
+        // cost.value = "";
+        // format.value = "";
         this.props.onRegistrationSuccess();
       })
       .catch((res) => {
         this.setState({ error: res.error });
-      })
-      // .then((resource) => this.props.history.push("/resources"));
+      });
+    // .then((resource) => this.props.history.push("/resources"));
   };
   render() {
     const { error } = this.state;

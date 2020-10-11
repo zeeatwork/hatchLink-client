@@ -12,8 +12,15 @@ export default class UpdateFormPage extends Component {
       .catch(this.context.setError);
   }*/
 
+  onRegistrationSuccess = () => {
+    const resource =
+      this.context.resourceList.find(
+        (res) => res.id === Number(this.props.match.params.resourceId)
+      ) || {};
+    this.props.history.push("/resources/" + resource.id);
+  };
+
   render() {
-  
     const { error } = this.context;
     return (
       <Section list className="AddResourcePage">
@@ -26,6 +33,7 @@ export default class UpdateFormPage extends Component {
                 (res) => res.id === Number(this.props.match.params.resourceId)
               ) || {}
             }
+            onRegistrationSuccess={this.onRegistrationSuccess}
           />
         )}
       </Section>
