@@ -14,6 +14,10 @@ export default class ResourceDetailsPage extends Component {
       .then(() => this.props.history.push("/resources"));
   };
 
+  componentDidMount = () => {
+    this.context.getAllResources();
+  };
+
   render() {
     const { error } = this.context;
     const resource =
