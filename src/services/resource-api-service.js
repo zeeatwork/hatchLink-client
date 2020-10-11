@@ -74,7 +74,7 @@ const ResourceApiService = {
       },
     }).then((res) => {
       if (res.statusCode !== 204) {
-        console.log("Delete failed.");
+        console.log("Deleted");
       } else {
         res.redirect(`${config.API_ENDPOINT}/resources/`);
       }
