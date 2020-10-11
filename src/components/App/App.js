@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "../Header/Header";
 import ResourceListPage from "../../routes/ResourceListPage/ResourceListPage";
 import ResourceDetailsPage from "../../routes/ResourceDetailsPage/ResourceDetailsPage";
 import LandingPage from "../LandingPage/LandingPage.js";
@@ -76,6 +77,7 @@ class App extends Component {
           )}
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
+            <Route path={"/header"} component={Header} />
             <Route exact path={"/resources"} component={ResourceListPage} />
             <Route path={"/login"} component={LoginPage} />
             <Route path={"/add-resource"} component={AddResource} />

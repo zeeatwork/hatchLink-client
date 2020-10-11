@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
+
 import ResourceApiService from "../../services/resource-api-service";
 import "./reviewform.css";
 import { Button, Textarea } from "../Utils/Utils";
@@ -76,9 +76,7 @@ export default class ReviewForm extends Component {
   render() {
     return (
       <div>
-        <header className="App__header">
-          <Header />
-        </header>
+        
         <form className="ReviewForm" onSubmit={this.handleSubmit}>
           <div className="survey">
             <p>Exercises Included?</p>
