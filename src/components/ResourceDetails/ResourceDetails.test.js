@@ -1,22 +1,18 @@
 import React from "react";
-import { shallow } from "enzyme";
-import toJson from "enzyme-to-json";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
+import ResourceApiService from "../../services/resource-api-service";
+import { ExternalLink } from "react-external-link";
 import ResourceDetails from "./ResourceDetails";
 
-describe(`Resource component`, () => {
-  const props = {
-    id: "a",
-    name: "test-class-name",
-    modified: new Date(2018, 12, 15),
-  };
-
-  it("renders a .Resource by default", () => {
-    const wrapper = shallow(<ResourceDetails />);
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
-
-  it("renders the Resource given props", () => {
-    const wrapper = shallow(<ResourceDetails {...props} />);
-    expect(toJson(wrapper)).toMatchSnapshot();
-  });
+it("renders without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(
+    <Router>
+      <ResourceDetails />
+    </Router>,
+    div
+  );
+  ReactDOM.unmountComponentAtNode(div); //cleanup
 });
