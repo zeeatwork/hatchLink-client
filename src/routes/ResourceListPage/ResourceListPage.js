@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../../components/Header/Header";
 import ResourceListContext from "../../contexts/ResourceListContext";
 import { Section } from "../../components/Utils/Utils";
 import ResourceListItem from "../../components/ResourceListItem/ResourceListItem";
@@ -18,7 +17,7 @@ export default class ResourceListPage extends Component {
     const { error } = this.context;
     return (
       <div>
-        <Header />
+    
         <Section list className="ResourceListPage">
           {error ? (
             <p className="red">There was an error, try again</p>

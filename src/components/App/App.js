@@ -5,7 +5,7 @@ import ResourceDetailsPage from "../../routes/ResourceDetailsPage/ResourceDetail
 import LandingPage from "../LandingPage/LandingPage.js";
 import AddResource from "../AddResource/AddResource";
 import LoginPage from "../../routes/LoginPage/LoginPage";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import RegistrationPage from "../../routes/RegistrationPage/RegistrationPage";
 import NotFoundPage from "../../routes/NotFoundPage/NotFoundPage";
 import "./App.css";
@@ -15,14 +15,14 @@ import ResourceListContext from "../../contexts/ResourceListContext";
 
 class App extends Component {
   static contextType = ResourceListContext;
-  state = {
-    hasError: false,
-  };
+  // state = {
+  //   hasError: false,
+  // };
 
-  static getDerivedStateFromError(error) {
-    console.error(error);
-    return { hasError: true };
-  }
+  // static getDerivedStateFromError(error) {
+  //   console.error(error);
+  //   return { hasError: true };
+  // }
   setResources = (resources) => {
     this.setState({
       resources,
@@ -71,13 +71,12 @@ class App extends Component {
 
     return (
       <div className="App">
+        <header className="App__header">
+          <Header history={this.props.history} />
+        </header>
         <main className="App__main">
-          {this.state.hasError && (
-            <p className="red">There was an error! Oh no!</p>
-          )}
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
-            <Route path={"/header"} component={Header} />
             <Route exact path={"/resources"} component={ResourceListPage} />
             <Route path={"/login"} component={LoginPage} />
             <Route path={"/add-resource"} component={AddResource} />
@@ -105,4 +104,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

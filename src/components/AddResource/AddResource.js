@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../Header/Header"
 import ResourceApiService from "../../services/resource-api-service";
 import "./addResource.css";
 
@@ -38,9 +37,6 @@ export default class AddResource extends React.Component {
     const { error } = this.state;
     return (
       <div>
-        <header className="App__header">
-          <Header />
-        </header>
         <form className="form" onSubmit={this.handleSubmit}>
           <h2>Add A Resource</h2>
 
