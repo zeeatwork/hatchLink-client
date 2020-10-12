@@ -5,9 +5,12 @@ import ResourceListItem from "./ResourceListItem";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
+  const resource = {
+    id: 1
+  }
   ReactDOM.render(
     <Router>
-      <ResourceListItem />
+      <ResourceListItem resource={resource}/>
     </Router>,
     div
   );

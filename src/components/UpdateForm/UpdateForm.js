@@ -13,7 +13,7 @@ export default class UpdateResourceForm extends React.Component {
   //can I set the default values to their current value?
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const { name, url, cost, format } = ev.target;
+    const { url, cost, format } = ev.target;
     this.setState({ error: null });
     console.log("I AM HERE 0");
     ResourceApiService.updateResource({

@@ -8,9 +8,13 @@ import ResourceDetails from "./ResourceDetails";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
+  const resource = {
+    id: 1,
+    name: "Test",
+  };
   ReactDOM.render(
     <Router>
-      <ResourceDetails />
+      <ResourceDetails resource={resource} />
     </Router>,
     div
   );
